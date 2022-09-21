@@ -1,0 +1,43 @@
+name: PR automatic build CI
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  build:
+    if: github.event.review.state == 'approved'
+    name: Running PR automatic build CI
+    runs-on: self-hosted
+    steps:
+      - name: Git branch name
+        id: git-branch-name
+        uses: EthanSK/git-branch-name-action@v1
+        
+      - name: Echo the branch name
+        run: echo "Branch name ${GIT_BRANCH_NAME}"
+    
+      - name: Checkout
+        uses: actions/checkout@v3 # Github action in use (checkout)
+        with:
+          token: ${{ secrets.IOS_GITHUB_TOKEN }}
+          lfs: true
+
+      - name: Building 
+        run: bundle exec fastlane adhoc configuration:Release
+
+      - name: Glob match
+        uses: tj-actions/glob@v13.1
+        id: glob
+        with:
+          files: |
+            build/*.ipa
+            
+      - name: Sending YiIoT adhoc build to Slack
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
+          path: ${{ steps.glob.outputs.paths }}
+          channel: ios-releases
+          initial_comment: ${{ github.event.pull_request.title }}
+        continue-on-error: true

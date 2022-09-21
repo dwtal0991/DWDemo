@@ -1,0 +1,35 @@
+name: schedule build CI
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-6'
+
+jobs:
+  nightly:
+    name: Running nightly build CI
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3 # Github action in use (checkout)
+        with:
+          token: ${{ secrets.IOS_GITHUB_TOKEN }}
+          lfs: true
+
+      - name: Building nightly adhoc build
+        run: bundle exec fastlane nightlyadhoc
+
+      - name: Sending YiIoT adhoc build to Slack
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
+          path: build/YiIoT-nightly-adhoc-debug.ipa
+          channel: ios-releases
+        continue-on-error: true
+        
+      - name: Sending YiIoT dev build to Slack
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
+          path: build/YiIoT-nightly-dev-debug.ipa
+          channel: ios-releases
+        continue-on-error: true

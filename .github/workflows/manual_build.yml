@@ -1,0 +1,43 @@
+name: manual build CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      signEnv:
+        description: 'dev/adhoc'
+        default: 'dev'
+        required: true
+      configuration:
+        description: 'Debug/Release'
+        default: 'Debug'
+        required: true
+
+jobs:
+  build:
+    name: Running build CI
+    runs-on: self-hosted
+    steps:
+    
+      - name: Checkout
+        uses: actions/checkout@v3 # Github action in use (checkout)
+        with:
+          token: ${{ secrets.IOS_GITHUB_TOKEN }}
+          lfs: true
+
+      - name: Building
+        run: bundle exec fastlane ${{ github.event.inputs.signEnv }} configuration:${{ github.event.inputs.configuration }}
+        
+      - name: Glob match
+        uses: tj-actions/glob@v13.1
+        id: glob
+        with:
+          files: |
+            build/*.ipa
+
+      - name: Sending YiIoT build to Slack
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
+          path: ${{ steps.glob.outputs.paths }}
+          channel: ios-releases
+        continue-on-error: true

@@ -4,19 +4,20 @@ default_platform :ios
 platform :ios do
     before_all do
     git_pull
-    #cocoapods
+    cocoapods
 end
 
-projectName = "YiIoT"
+projectName = "TestFunctional"
 version = get_version_number(xcodeproj: "#{projectName}.xcodeproj")
 
 time = Time.new
 timeString = time.strftime("%m%d%H%M")
 build_number = "#{version}.#{timeString}"
-plist_path = "./YYPro/Info.plist"
-plist_SE_path = "./NotificationService/Info.plist"
+plist_path = "./#{projectName}/Info.plist"
 set_info_plist_value(path: "#{plist_path}", key: "CFBundleVersion", value: "#{build_number}")
-set_info_plist_value(path: "#{plist_SE_path}", key: "CFBundleVersion", value: "#{build_number}")
+
+#plist_SE_path = "./NotificationService/Info.plist"
+#set_info_plist_value(path: "#{plist_SE_path}", key: "CFBundleVersion", value: "#{build_number}")
 
 output_name = "#{projectName} #{build_number}"
 

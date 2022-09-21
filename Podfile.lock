@@ -162,8 +162,8 @@ DEPENDENCIES:
   - ALToastView
   - AMTumblrHud
   - dsBridge (= 3.0.6)
-  - DWBase (from `../DWBase/DWBase.podspec`)
-  - DWView (from `../DWView/DWView.podspec`)
+  - "DWBase (from `git@github.com:dwtal0991/DWBase.git`, commit `HEAD`, branch `develop`)"
+  - "DWView (from `git@github.com:dwtal0991/DWView.git`, commit `HEAD`, branch `develop`)"
   - DZNEmptyDataSet
   - FLAnimatedImage
   - GKPageScrollView (= 1.3.5)
@@ -230,9 +230,21 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   DWBase:
-    :path: "../DWBase/DWBase.podspec"
+    :branch: develop
+    :commit: HEAD
+    :git: "git@github.com:dwtal0991/DWBase.git"
   DWView:
-    :path: "../DWView/DWView.podspec"
+    :branch: develop
+    :commit: HEAD
+    :git: "git@github.com:dwtal0991/DWView.git"
+
+CHECKOUT OPTIONS:
+  DWBase:
+    :commit: 76b67a136e1cff947bcbf73697ccc9ace73c194c
+    :git: "git@github.com:dwtal0991/DWBase.git"
+  DWView:
+    :commit: 38e2d12bd24119a5111e848c799af887aae3c03b
+    :git: "git@github.com:dwtal0991/DWView.git"
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -270,6 +282,6 @@ SPEC CHECKSUMS:
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   XMLReader: c7e54b707c368e2fa545d8313276b4de13a36ff5
 
-PODFILE CHECKSUM: 7cbcd5ee779e27f1df5232a3a06b026a59868e02
+PODFILE CHECKSUM: c66498cc7b54e3897612963ad8b7cf8d0d4e283e
 
 COCOAPODS: 1.11.3

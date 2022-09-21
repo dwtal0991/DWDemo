@@ -3,7 +3,7 @@
 
 workspace 'TestFunctional'
 project 'TestFunctional.xcodeproj'
-platform :ios, '9.0'
+platform :ios, '11.0'
 #use_frameworks!
 
 source 'https://github.com/CocoaPods/Specs.git'
@@ -46,10 +46,10 @@ def commonPods
     pod 'KVOMutableArray/ReactiveCocoaSupport'
     pod 'SnapKit', '4.2.0'
     pod 'QMUIKit/QMUIComponents/QMUIConsole'
-    #pod 'DWBase' , :git => 'git@github.com:dwtal0991/DWBase.git', :branch => 'develop', commit: 'HEAD'
-    #pod 'DWView' , :git => 'git@github.com:dwtal0991/DWView.git', :branch => 'develop', commit: 'HEAD'
-    pod 'DWBase',  :path => '../DWBase/DWBase.podspec'
-    pod 'DWView',  :path => '../DWView/DWView.podspec'
+    pod 'DWBase' , :git => 'git@github.com:dwtal0991/DWBase.git', :branch => 'develop', commit: 'HEAD'
+    pod 'DWView' , :git => 'git@github.com:dwtal0991/DWView.git', :branch => 'develop', commit: 'HEAD'
+#    pod 'DWBase',  :path => '../DWBase/DWBase.podspec'
+#    pod 'DWView',  :path => '../DWView/DWView.podspec'
 
 
 

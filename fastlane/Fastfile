@@ -3,20 +3,29 @@
 
 default_platform(:ios)
 
-
+projectName = "TestFunctional"
 
 platform :ios do
   lane :build do |option|
     cocoapods(
       clean_install: true,
     )
+    puts "option:#{option}"
     sign_env = option[:sign_env]
     scheme_name = option[:scheme_name]
     configuration = option[:configuration] || "Debug"
     export_method = option[:export_method]
     timestamp = Time.new.strftime("%m%d%H%M")
     version = get_version_number(target: scheme_name)
-    ipaName = option[:name] || "#{scheme_name}_#{sign_env}_#{configuration}_#{version}.#{timestamp}.ipa"
+    
+    sign_env_name = "#{sign_env}"
+    configuration_name = "#{configuration}".downcase
+    if "#{sign_env}" == "development"
+        sign_env_name = "dev"
+    end
+    ipaName = option[:name] || "#{scheme_name}-#{git_branch}-#{sign_env_name}-#{configuration_name}-#{version}.#{timestamp}.ipa"
+    puts "branch:#{git_branch}"
+    puts "#{ipaName}"
     #sync_code_signing(type: sign_env, readonly: true)
     increment_build_number_in_xcodeproj(scheme: scheme_name, build_number: version + "." + timestamp)
     build_app(scheme: scheme_name,
@@ -27,13 +36,23 @@ platform :ios do
               output_directory: "./build",
               include_bitcode: false)
   end
+
   lane :dev do |option|
-    build sign_env: "development", scheme_name: "YiIoT", export_method: "development", configuration: option[:config], name: option[:name]
+    build sign_env: "development", scheme_name: "#{projectName}", export_method: "development", configuration: option[:configuration], name: option[:name]
   end
+
   lane :adhoc do |option|
-    build sign_env: "adhoc", scheme_name: "YiIoT", export_method: "ad-hoc", configuration: option[:config], name: option[:name]
+    build sign_env: "adhoc", scheme_name: "#{projectName}", export_method: "ad-hoc", configuration: option[:configuration], name: option[:name]
   end
+
+  lane :nightlyadhoc do |option|
+    build sign_env: "adhoc", scheme_name: "#{projectName}", export_method: "ad-hoc", configuration: option[:configuration], name: "YiIoT-nightly-adhoc-debug"
+
+    build sign_env: "development", scheme_name: "#{projectName}", export_method: "ad-hoc", configuration: option[:configuration], name: "YiIoT-nightly-dev-debug"
+  end
+
   lane :app do |option|
-    build sign_env: "appstore", scheme_name: "YiIoT", export_method: "app-store", configuration: option[:config], name: option[:name]
+    build sign_env: "appstore", scheme_name: "YiIoT", export_method: "app-store", configuration: option[:configuration], name: option[:name]
   end
+
 end

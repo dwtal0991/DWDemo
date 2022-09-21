@@ -15,10 +15,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios adhoc
+### ios build
 
 ```sh
-[bundle exec] fastlane ios adhoc
+[bundle exec] fastlane ios build
 ```
 
 
@@ -31,6 +31,30 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 
 
+### ios adhoc
+
+```sh
+[bundle exec] fastlane ios adhoc
+```
+
+
+
+### ios nightlyadhoc
+
+```sh
+[bundle exec] fastlane ios nightlyadhoc
+```
+
+
+
+### ios app
+
+```sh
+[bundle exec] fastlane ios app
+```
+
+
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
@@ -38,5 +62,3 @@ This README.md is auto-generated and will be re-generated every time [_fastlane_
 More information about _fastlane_ can be found on [fastlane.tools](https://fastlane.tools).
 
 The documentation of _fastlane_ can be found on [docs.fastlane.tools](https://docs.fastlane.tools).
-
-fastlane add_plugin xxxx

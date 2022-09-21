@@ -44,9 +44,14 @@ def commonPods
     pod 'SwipeView'
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'KVOMutableArray/ReactiveCocoaSupport'
-    #pod 'DWBase',  :path => '../XY-IOS-Functional/DWBase/DWBase.podspec'
-    pod 'DWBase' , :git => 'https://gitee.com/small_belly_teh/DWBase.git'
     pod 'SnapKit', '4.2.0'
+    pod 'QMUIKit/QMUIComponents/QMUIConsole'
+    #pod 'DWBase' , :git => 'git@github.com:dwtal0991/DWBase.git', :branch => 'develop', commit: 'HEAD'
+    #pod 'DWView' , :git => 'git@github.com:dwtal0991/DWView.git', :branch => 'develop', commit: 'HEAD'
+    pod 'DWBase',  :path => '../DWBase/DWBase.podspec'
+    pod 'DWView',  :path => '../DWView/DWView.podspec'
+
+
 
 end
 
@@ -56,7 +61,8 @@ target 'TestFunctional' do
       installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
           config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','TARGET_APP_TYPE=1','NS_BLOCK_ASSERTIONS']
-          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+          config.build_settings["DEVELOPMENT_TEAM"] = "NBXDNNG5B2"
         end
       end
     end

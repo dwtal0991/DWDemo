@@ -17,6 +17,7 @@
 		E49B2B582530844100A1346E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B2B572530844100A1346E /* main.m */; };
 		E49B2B622530844200A1346E /* TestFunctionalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B2B612530844200A1346E /* TestFunctionalTests.m */; };
 		E49B2B6D2530844200A1346E /* TestFunctionalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B2B6C2530844200A1346E /* TestFunctionalUITests.m */; };
+		E4F49EBE28DAE80C0014FADF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F49EBD28DAE80C0014FADF /* TestViewController.swift */; };
 		E4FA2FAE28A0ED94003370D9 /* NSString+Extection.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA2FAD28A0ED94003370D9 /* NSString+Extection.m */; };
 		E4FA2FB328A0EDF2003370D9 /* Devicesconfig.json in Resources */ = {isa = PBXBuildFile; fileRef = E4FA2FB228A0EDF2003370D9 /* Devicesconfig.json */; };
 		E4FA2FB528A101F2003370D9 /* A554J.json in Resources */ = {isa = PBXBuildFile; fileRef = E4FA2FB428A101F2003370D9 /* A554J.json */; };
@@ -61,6 +62,8 @@
 		E49B2B682530844200A1346E /* TestFunctionalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestFunctionalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E49B2B6C2530844200A1346E /* TestFunctionalUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestFunctionalUITests.m; sourceTree = "<group>"; };
 		E49B2B6E2530844200A1346E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4F49EBC28DAE80B0014FADF /* TestFunctional-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestFunctional-Bridging-Header.h"; sourceTree = "<group>"; };
+		E4F49EBD28DAE80C0014FADF /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E4FA2FAB28A0EC71003370D9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		E4FA2FAC28A0ED94003370D9 /* NSString+Extection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extection.h"; sourceTree = "<group>"; };
 		E4FA2FAD28A0ED94003370D9 /* NSString+Extection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extection.m"; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 				E49B2B492530843F00A1346E /* SceneDelegate.m */,
 				E49B2B4B2530843F00A1346E /* ViewController.h */,
 				E49B2B4C2530843F00A1346E /* ViewController.m */,
+				E4F49EBD28DAE80C0014FADF /* TestViewController.swift */,
 				E49B2B4E2530843F00A1346E /* Main.storyboard */,
 				E49B2B512530844100A1346E /* Assets.xcassets */,
 				E49B2B532530844100A1346E /* LaunchScreen.storyboard */,
@@ -151,6 +155,7 @@
 				E4FA2FAB28A0EC71003370D9 /* PrefixHeader.pch */,
 				E4FA2FAC28A0ED94003370D9 /* NSString+Extection.h */,
 				E4FA2FAD28A0ED94003370D9 /* NSString+Extection.m */,
+				E4F49EBC28DAE80B0014FADF /* TestFunctional-Bridging-Header.h */,
 			);
 			path = TestFunctional;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				TargetAttributes = {
 					E49B2B412530843F00A1346E = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1400;
 					};
 					E49B2B5C2530844200A1346E = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -361,6 +367,7 @@
 				E49B2B472530843F00A1346E /* AppDelegate.m in Sources */,
 				E49B2B582530844100A1346E /* main.m in Sources */,
 				E4FA2FAE28A0ED94003370D9 /* NSString+Extection.m in Sources */,
+				E4F49EBE28DAE80C0014FADF /* TestViewController.swift in Sources */,
 				E49B2B4A2530843F00A1346E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,6 +541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NBXDNNG5B2;
 				ENABLE_BITCODE = NO;
@@ -545,6 +553,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunyi.smartcamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestFunctional/TestFunctional-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -555,6 +566,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NBXDNNG5B2;
 				ENABLE_BITCODE = NO;
@@ -566,6 +578,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunyi.smartcamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestFunctional/TestFunctional-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -573,6 +587,7 @@
 		E49B2B752530844200A1346E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48ACASQH47;
@@ -593,6 +608,7 @@
 		E49B2B762530844200A1346E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48ACASQH47;
@@ -613,6 +629,7 @@
 		E49B2B782530844200A1346E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48ACASQH47;
 				INFOPLIST_FILE = TestFunctionalUITests/Info.plist;
@@ -631,6 +648,7 @@
 		E49B2B792530844200A1346E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48ACASQH47;
 				INFOPLIST_FILE = TestFunctionalUITests/Info.plist;

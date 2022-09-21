@@ -30,6 +30,7 @@ PODS:
     - DWBase/DWOpenUDID (= 1.0.10)
     - DWBase/DWStorage (= 1.0.10)
     - DWBase/SimpleView (= 1.0.10)
+    - DWBase/SwiftHelper (= 1.0.10)
     - DWBase/ToolCategory (= 1.0.10)
   - DWBase/DebugLog (1.0.10)
   - DWBase/DWAutoPackaging (1.0.10)
@@ -43,7 +44,15 @@ PODS:
   - DWBase/DWOpenUDID (1.0.10)
   - DWBase/DWStorage (1.0.10)
   - DWBase/SimpleView (1.0.10)
+  - DWBase/SwiftHelper (1.0.10)
   - DWBase/ToolCategory (1.0.10)
+  - DWView (1.0.7):
+    - DWView/DWNavTitleView (= 1.0.7)
+    - DWView/FCPhotoPiker (= 1.0.7)
+    - DWView/XHImageViewer (= 1.0.7)
+  - DWView/DWNavTitleView (1.0.7)
+  - DWView/FCPhotoPiker (1.0.7)
+  - DWView/XHImageViewer (1.0.7)
   - DZNEmptyDataSet (1.8.1)
   - FLAnimatedImage (1.0.12)
   - FMDB (2.7.5):
@@ -72,6 +81,70 @@ PODS:
   - PTEHorizontalTableView (1.1.0)
   - PulsingHalo (0.2.10)
   - PureLayout (3.1.6)
+  - QMUIKit/QMUIComponents/QMUIAppearance (4.1.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUIButton (4.1.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUICAAnimationExtension (4.1.3):
+    - QMUIKit/QMUIComponents/QMUIMultipleDelegates
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUIConsole (4.1.3):
+    - QMUIKit/QMUIComponents/QMUIButton
+    - QMUIKit/QMUIComponents/QMUICAAnimationExtension
+    - QMUIKit/QMUIComponents/QMUIPopupMenuView
+    - QMUIKit/QMUIComponents/QMUITextField
+    - QMUIKit/QMUIComponents/QMUITextView
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUIEmptyView (4.1.3):
+    - QMUIKit/QMUIComponents/QMUIAppearance
+    - QMUIKit/QMUIComponents/QMUIButton
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUIKeyboardManager (4.1.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUILabel (4.1.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUIMultipleDelegates (4.1.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUINavigationTitleView (4.1.3):
+    - QMUIKit/QMUIComponents/QMUIAppearance
+    - QMUIKit/QMUIComponents/QMUIButton
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUIPopupContainerView (4.1.3):
+    - QMUIKit/QMUIComponents/QMUIAppearance
+    - QMUIKit/QMUICore
+    - QMUIKit/QMUIMainFrame
+  - QMUIKit/QMUIComponents/QMUIPopupMenuView (4.1.3):
+    - QMUIKit/QMUIComponents/QMUIButton
+    - QMUIKit/QMUIComponents/QMUIPopupContainerView
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUITableView (4.1.3):
+    - QMUIKit/QMUIComponents/QMUITableViewProtocols
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUITableViewHeaderFooterView (4.1.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUITableViewProtocols (4.1.3):
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUITextField (4.1.3):
+    - QMUIKit/QMUIComponents/QMUIMultipleDelegates
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUIComponents/QMUITextView (4.1.3):
+    - QMUIKit/QMUIComponents/QMUILabel
+    - QMUIKit/QMUIComponents/QMUIMultipleDelegates
+    - QMUIKit/QMUICore
+  - QMUIKit/QMUICore (4.1.3):
+    - QMUIKit/QMUILog
+    - QMUIKit/QMUIWeakObjectContainer
+  - QMUIKit/QMUILog (4.1.3)
+  - QMUIKit/QMUIMainFrame (4.1.3):
+    - QMUIKit/QMUIComponents/QMUIEmptyView
+    - QMUIKit/QMUIComponents/QMUIKeyboardManager
+    - QMUIKit/QMUIComponents/QMUIMultipleDelegates
+    - QMUIKit/QMUIComponents/QMUINavigationTitleView
+    - QMUIKit/QMUIComponents/QMUITableView
+    - QMUIKit/QMUIComponents/QMUITableViewHeaderFooterView
+    - QMUIKit/QMUICore
+    - QMUIKit/QMUILog
+  - QMUIKit/QMUIWeakObjectContainer (4.1.3)
   - Reachability (3.2)
   - ReactiveObjC (3.1.1)
   - SDWebImage (5.9.2):
@@ -89,7 +162,8 @@ DEPENDENCIES:
   - ALToastView
   - AMTumblrHud
   - dsBridge (= 3.0.6)
-  - DWBase (from `https://gitee.com/small_belly_teh/DWBase.git`)
+  - DWBase (from `../DWBase/DWBase.podspec`)
+  - DWView (from `../DWView/DWView.podspec`)
   - DZNEmptyDataSet
   - FLAnimatedImage
   - GKPageScrollView (= 1.3.5)
@@ -108,6 +182,7 @@ DEPENDENCIES:
   - PTEHorizontalTableView
   - PulsingHalo
   - PureLayout
+  - QMUIKit/QMUIComponents/QMUIConsole
   - Reachability
   - ReactiveObjC (~> 3.1.1)
   - SDWebImage
@@ -142,6 +217,7 @@ SPEC REPOS:
     - PTEHorizontalTableView
     - PulsingHalo
     - PureLayout
+    - QMUIKit
     - Reachability
     - ReactiveObjC
     - SDWebImage
@@ -154,19 +230,17 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   DWBase:
-    :git: https://gitee.com/small_belly_teh/DWBase.git
-
-CHECKOUT OPTIONS:
-  DWBase:
-    :commit: 11695421a7bdf018694dfb8f6d9d86c02e6b732e
-    :git: https://gitee.com/small_belly_teh/DWBase.git
+    :path: "../DWBase/DWBase.podspec"
+  DWView:
+    :path: "../DWView/DWView.podspec"
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   ALToastView: 3b98cc872919e43d2d3e249e4e080b50bdf019f1
   AMTumblrHud: 095daf71c57d4e47d11a8432dba1ed6177a35115
   dsBridge: 48b62ee8a411ad601a88d6f6c8cf6cb634b206b7
-  DWBase: 9f8d95d5c5d4c48009a7fdc559c9e522b4b3ec8b
+  DWBase: 668b15c7c78accb58b63fba1546c6f0d986944d0
+  DWView: 09aa1dcf22ad60f443cb05a42c95ba46760495fb
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -185,6 +259,7 @@ SPEC CHECKSUMS:
   PTEHorizontalTableView: 635dd91f11206ebeda9f300500e47fe970d56d32
   PulsingHalo: 1a9c6b65a8e12ac9eee1627fc8476efcce8e1918
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
+  QMUIKit: 1063a99f90aedd6e2dd65026ce0df46e6785e67b
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb
@@ -195,6 +270,6 @@ SPEC CHECKSUMS:
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   XMLReader: c7e54b707c368e2fa545d8313276b4de13a36ff5
 
-PODFILE CHECKSUM: 40f5d09c55842ed7e8c23b5c8185d4c320b92615
+PODFILE CHECKSUM: 7cbcd5ee779e27f1df5232a3a06b026a59868e02
 
 COCOAPODS: 1.11.3

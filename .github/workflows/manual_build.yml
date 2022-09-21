@@ -39,5 +39,5 @@ jobs:
         with:
           token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
           path: ${{ steps.glob.outputs.paths }}
-          channel: ios-releases
+          channel: ios-releases-test
         continue-on-error: true

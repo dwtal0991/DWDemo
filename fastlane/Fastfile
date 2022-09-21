@@ -1,0 +1,39 @@
+#appstore, ad-hoc, package, enterprise, development
+
+
+default_platform(:ios)
+
+
+
+platform :ios do
+  lane :build do |option|
+    cocoapods(
+      clean_install: true,
+    )
+    sign_env = option[:sign_env]
+    scheme_name = option[:scheme_name]
+    configuration = option[:configuration] || "Debug"
+    export_method = option[:export_method]
+    timestamp = Time.new.strftime("%m%d%H%M")
+    version = get_version_number(target: scheme_name)
+    ipaName = option[:name] || "#{scheme_name}_#{sign_env}_#{configuration}_#{version}.#{timestamp}.ipa"
+    #sync_code_signing(type: sign_env, readonly: true)
+    increment_build_number_in_xcodeproj(scheme: scheme_name, build_number: version + "." + timestamp)
+    build_app(scheme: scheme_name,
+              workspace: "#{scheme_name}.xcworkspace",
+              configuration: configuration,
+              export_method: export_method,
+              output_name: ipaName,
+              output_directory: "./build",
+              include_bitcode: false)
+  end
+  lane :dev do |option|
+    build sign_env: "development", scheme_name: "YiIoT", export_method: "development", configuration: option[:config], name: option[:name]
+  end
+  lane :adhoc do |option|
+    build sign_env: "adhoc", scheme_name: "YiIoT", export_method: "ad-hoc", configuration: option[:config], name: option[:name]
+  end
+  lane :app do |option|
+    build sign_env: "appstore", scheme_name: "YiIoT", export_method: "app-store", configuration: option[:config], name: option[:name]
+  end
+end

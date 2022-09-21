@@ -1,0 +1,48 @@
+#appstore, ad-hoc, package, enterprise, development
+
+default_platform :ios
+platform :ios do
+    before_all do
+    git_pull
+    #cocoapods
+end
+
+projectName = "YiIoT"
+version = get_version_number(xcodeproj: "#{projectName}.xcodeproj")
+
+time = Time.new
+timeString = time.strftime("%m%d%H%M")
+build_number = "#{version}.#{timeString}"
+plist_path = "./YYPro/Info.plist"
+plist_SE_path = "./NotificationService/Info.plist"
+set_info_plist_value(path: "#{plist_path}", key: "CFBundleVersion", value: "#{build_number}")
+set_info_plist_value(path: "#{plist_SE_path}", key: "CFBundleVersion", value: "#{build_number}")
+
+output_name = "#{projectName} #{build_number}"
+
+
+   lane :adhoc do
+        gym(
+            workspace: "#{projectName}.xcworkspace",
+            configuration: "Debug",
+            scheme: "#{projectName}",
+            clean: true,
+            export_method: "ad-hoc",
+            output_directory: "../App/adhoc",
+	    output_name: "#{output_name}-adhoc.ipa"
+        )
+    end
+    
+    lane :dev do
+        gym(
+            workspace: "#{projectName}.xcworkspace",
+            configuration: "Debug",
+            scheme: "#{projectName}",
+            clean: true,
+            export_method: "development",
+            output_directory: "../App/dev",
+	    output_name: "#{output_name}-dev.ipa",
+        )
+    end
+    
+end

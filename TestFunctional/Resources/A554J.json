@@ -1,0 +1,285 @@
+{
+    "ipcam_onoff": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "status_led": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "image_rotation": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "LDC": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "mic": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "night_led": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "cover_warning": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "breath_led": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "voice_broadcast": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "monitor": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "talk_single": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "talk_two": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "OTA_update": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "SD_update": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "silence_update": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "AP_update": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "move_control": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "panorama_photo": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "preset": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "motion_track": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "panorama_cruise": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "preset_cruise": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "allday_cruise": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "defined_cruise": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "move_correction": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "move_check": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "motion_detect_record": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "allday_record": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "storage_status": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "storage_format": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "resolution_switch": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "fps_switch": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "network_info": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "backup_mi": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "reset_ipcam": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "time_poweron": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "fast_video": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "lapse_video": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "wireless_switch": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "fast_bind": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "qrcode_bind": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "ROI": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "fast_video_playback": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "motion_detect": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "motion_area": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "motion_sensitivity": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "baby_cry": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "human_detect": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "gestures": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "voice_cmd": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "abnormal_voice": {
+        "support": "n",
+        "ver": "7.1.00.20A"
+    },
+    "motion_track_warning": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "motion_video_upload": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "visitors_flowrate": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "allday_video_upload": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "image_index": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "H264": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "H265": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "light_switch": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "voice_warning": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "ap_mode": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "pir": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "battery_info": {
+        "support": "y",
+        "ver": "7.0.00.01A"
+    },
+    "voice_bind": {
+        "support": "n",
+        "ver": "7.0.00.01A"
+    },
+    "alarm_video_clip": {
+        "support": "y",
+        "ver": "7.0.00.01A",
+        "ex": "n"
+    },
+    "close_alarm_freq": {
+        "support": "y",
+        "ver": "7.0.00.01A",
+        "ex": "n"
+    },
+    "doorbell": {
+        "support": "y",
+        "ver_qi": "7.0.00.01A",
+        "ex": "n"
+    },
+    "vehicleDetectionSupport": {
+        "support" : "y",
+        "ver" : "9.2.00.50_000000000000"
+    },
+    "animalDetectionSupport": {
+        "support" : "y",
+        "ver" : "9.2.00.50_000000000000"
+    },
+    "motionDetectCommandSupport" : {
+        "support": "y",
+        "ver": "9.2.00.50_000000000000"
+    }
+}

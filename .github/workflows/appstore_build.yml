@@ -1,19 +1,11 @@
-name: manual build CI
+name: appstore build CI
 
 on:
   workflow_dispatch:
     inputs:
-      signEnv:
-        description: 'iOS-yi-iot: dev/adhoc'
-        default: 'adhoc'
-        required: true
       configuration:
         description: 'iOS-yi-iot: Debug/Release'
-        default: 'Debug'
-        required: true
-      voipBaseForiOS:
-        description: 'voipBaseForiOS: branch'
-        default: 'develop'
+        default: 'Release'
         required: true
       message:
         description: 'post message as text file to slack'
@@ -22,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: Running build CI
+    name: Running appstore build CI
     runs-on: macOS-SH
     steps:
     
@@ -33,7 +25,7 @@ jobs:
           lfs: true
 
       - name: Building
-        run: bundle exec fastlane ${{ github.event.inputs.signEnv }} configuration:${{ github.event.inputs.configuration }} voipBaseForiOS:${{ github.event.inputs.voipBaseForiOS }}
+        run: bundle exec fastlane app configuration:${{ github.event.inputs.configuration }}
 
       - name: Sending YiIoT build to Slack
         id: message
@@ -44,4 +36,13 @@ jobs:
           channel_id: C0496EGPDEC
           retries: 0
           initial_comment: ${{ github.event.inputs.message }}
+        continue-on-error: true
+        
+      - name: Sending YiIoT dSYM to Slack
+        uses: MeilCli/slack-upload-file@v3
+        with:
+          slack_token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
+          file_path: build/*.zip
+          channel_id: C0496EGPDEC
+          retries: 0
         continue-on-error: true

@@ -8,15 +8,15 @@ jobs:
   build:
     if: github.event.review.state == 'approved'
     name: Running PR automatic build CI
-    runs-on: self-hosted
+    runs-on: macOS-SH
     steps:
-      - name: Git branch name
-        id: git-branch-name
-        uses: EthanSK/git-branch-name-action@v1
+      - name: Get ticket number
+        id: ticket-number
+        run: |
+          id=$(echo "${{ github.event.pull_request.title }}" | cut -d: -f1)
+          if [[ $id != IOTIOS* ]]; then id=""; fi
+          echo "::set-output name=TICKET_NUMBER::$id"
         
-      - name: Echo the branch name
-        run: echo "Branch name ${GIT_BRANCH_NAME}"
-    
       - name: Checkout
         uses: actions/checkout@v3 # Github action in use (checkout)
         with:
@@ -24,20 +24,15 @@ jobs:
           lfs: true
 
       - name: Building 
-        run: bundle exec fastlane adhoc configuration:Release
-
-      - name: Glob match
-        uses: tj-actions/glob@v13.1
-        id: glob
+        run: bundle exec fastlane adhoc configuration:Release branch:${{ steps.ticket-number.outputs.TICKET_NUMBER }}
+        
+      - name: Sending YiIoT build to Slack
+        id: message
+        uses: MeilCli/slack-upload-file@v3
         with:
-          files: |
-            build/*.ipa
-            
-      - name: Sending YiIoT adhoc build to Slack
-        uses: adrey/slack-file-upload-action@master
-        with:
-          token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
-          path: ${{ steps.glob.outputs.paths }}
-          channel: ios-releases
+          slack_token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
+          file_path: build/*.ipa
+          channel_id: C0496EGPDEC
+          retries: 0
           initial_comment: ${{ github.event.pull_request.title }}
         continue-on-error: true

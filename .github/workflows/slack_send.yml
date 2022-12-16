@@ -1,0 +1,25 @@
+name: slack sending CI
+
+on:
+  workflow_dispatch:
+    inputs:
+       message:
+        description: 'post message as text file to slack'
+        required: true
+        default: 'New version!'
+
+jobs:
+  build:
+    name: Running build CI
+    runs-on: macOS-SH
+    steps:
+      - name: Sending YiIoT build to Slack
+        id: message
+        uses: MeilCli/slack-upload-file@v3
+        with:
+          slack_token: ${{ secrets.QA_RELEASE_BOT_TOKEN }}
+          file_path: build/*.ipa
+          channel_id: C0496EGPDEC
+          retries: 0
+          initial_comment: ${{ github.event.inputs.message }}
+        continue-on-error: true

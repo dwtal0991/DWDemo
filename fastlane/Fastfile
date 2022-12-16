@@ -26,8 +26,15 @@ platform :ios do
     if "#{sign_env}" == "development"
         sign_env_name = "dev"
     end
-    ipaName = option[:name] || "#{scheme_name}-#{git_branch}-#{sign_env_name}-#{configuration_name}-#{version}.#{timestamp}.ipa"
-    puts "branch:#{git_branch}"
+	
+    branch_name = "#{git_branch}"
+    if "#{branch_name}" == ""
+        branch_name = option[:branch] || ""
+    end
+
+    ipaName = option[:name] || "#{scheme_name}-#{branch_name}-#{sign_env_name}-#{configuration_name}-#{version}.#{timestamp}.ipa"
+    puts "git_branch:#{git_branch}"
+    puts "branch:#{branch_name}"
     puts "#{ipaName}"
     #sync_code_signing(type: sign_env, readonly: true)
     increment_build_number_in_xcodeproj(scheme: scheme_name, build_number: version + "." + timestamp)
@@ -48,18 +55,18 @@ platform :ios do
   end
 
   lane :adhoc do |option|
-    build sign_env: "adhoc", scheme_name: "YiIoT", export_method: "ad-hoc", configuration: option[:configuration], name: option[:name], voipBaseForiOS: option[:voipBaseForiOS]
+    build sign_env: "adhoc", scheme_name: "YiIoT", export_method: "ad-hoc", configuration: option[:configuration], name: option[:name], voipBaseForiOS: option[:voipBaseForiOS], branch: option[:branch]
   end
 
   lane :nightlyadhoc do |option|
     build sign_env: "adhoc", scheme_name: "YiIoT", export_method: "ad-hoc", configuration: "Release", name: "YiIoT-nightly-adhoc-release", voipBaseForiOS: option[:voipBaseForiOS]
-    build sign_env: "development", scheme_name: "YiIoT", export_method: "ad-hoc", configuration: option[:configuration], name: "YiIoT-nightly-dev-debug", voipBaseForiOS: option[:voipBaseForiOS]
+    build sign_env: "development", scheme_name: "YiIoT", export_method: "ad-hoc", configuration: option[:configuration], name: "YiIoT-nightly-adhoc-debug", voipBaseForiOS: option[:voipBaseForiOS]
   end
 
   lane :app do |option|
-    sync_code_signing(type: "appstore")
+    #sync_code_signing(type: "appstore")
     build sign_env: "appstore", scheme_name: "YiIoT", export_method: "app-store", configuration: "Release", name: option[:name], voipBaseForiOS: option[:voipBaseForiOS]
-    upload_to_app_store
+    #upload_to_app_store
   end
 
 end
